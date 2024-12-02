@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Videos Sequentially</title>
+</head>
+<body>
+    <h1>Street Cred Custorms</h1>
+
+    <!-- Video 1 -->
+    <video id="video1" width="600" controls>
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Video 2 -->
+    <video id="video2" width="600" controls style="display: none;">
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        // Get video elements
+        const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
+
+        // Add event listener for the end of video1
+        video1.addEventListener('ended', () => {
+            // Hide video1 and show video2
+            video1.style.display = 'none';
+            video2.style.display = 'block';
+            video2.play();
+        });
+    </script>
+</body>
+</html>
